@@ -40,9 +40,11 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             // Add Desk
             _context.Desk.Add(Desk);
             await _context.SaveChangesAsync();
-
             // Set Desk Id
             DeskQuote.DeskId = Desk.DeskId;
+
+            // Set Desk
+            DeskQuote.Desk = Desk;
 
             // Set Quote Date
             DeskQuote.QuoteDate = DateTime.Now;

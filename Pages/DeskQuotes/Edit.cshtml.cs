@@ -21,6 +21,9 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         }
 
         [BindProperty]
+        public Desk Desk { get; set; }
+
+        [BindProperty]
         public DeskQuote DeskQuote { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -37,7 +40,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             {
                 return NotFound();
             }
-           ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
+            ViewData["DeliveryTypeId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryName");
+            ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialName");
             return Page();
         }
 
