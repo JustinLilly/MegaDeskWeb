@@ -21,6 +21,8 @@ namespace MegaDeskWeb.Models
         // Properties
         public int DeskQuoteId { get; set; }
 
+        [StringLength(60, MinimumLength = 2)]
+        [Required]
         [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 

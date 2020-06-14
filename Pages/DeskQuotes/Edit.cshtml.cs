@@ -45,8 +45,6 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             return Page();
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -55,6 +53,12 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             }
 
             _context.Attach(DeskQuote).State = EntityState.Modified;
+
+            // Set Quote Date
+            DeskQuote.QuoteDate = DeskQuote.QuoteDate;
+
+            // Set Quote Price
+            DeskQuote.QuotePrice = DeskQuote.GetQuotePrice(_context);
 
             try
             {
