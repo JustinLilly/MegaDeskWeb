@@ -44,6 +44,12 @@
                 <select asp-for="DeskQuote.Desk.DesktopMaterialId" class="form-control" asp-items="ViewBag.DesktopMaterialId"></select>
                 <span asp-validation-for="Desk.DesktopMaterialId" class="text-danger"></span>
             </div>
+            <div>
+                <label asp-for="DeskQuote.QuoteDate" class="control-label"></label>
+                <input asp-for="DeskQuote.QuoteDate" type="date" class="form-control" />
+                <span asp-validation-for="DeskQuote.QuoteDate" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
