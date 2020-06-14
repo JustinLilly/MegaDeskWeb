@@ -47,10 +47,10 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
