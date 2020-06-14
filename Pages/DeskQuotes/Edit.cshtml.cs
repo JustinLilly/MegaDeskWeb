@@ -35,7 +35,6 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
             DeskQuote = await _context.DeskQuote
                 .Include(d => d.Desk).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
-
             if (DeskQuote == null)
             {
                 return NotFound();
@@ -55,6 +54,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             }
 
             _context.Attach(DeskQuote).State = EntityState.Modified;
+
+            DeskQuote.QuotePrice = DeskQuote.GetQuotePrice(_context);
 
             try
             {

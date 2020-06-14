@@ -21,6 +21,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         public DeskQuote DeskQuote { get; set; }
 
+        public Desk Desk { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -29,12 +31,12 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             }
 
             DeskQuote = await _context.DeskQuote
-                .Include(d => d.Desk).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
-
+                .Include(d => d.Desk).Include(d => d.DeliveryType).Include(d => d.Desk.DesktopMaterial).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
             if (DeskQuote == null)
             {
                 return NotFound();
             }
+            Console.WriteLine(DeskQuote.DeliveryTypeId);
             return Page();
         }
     }

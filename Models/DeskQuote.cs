@@ -25,6 +25,7 @@ namespace MegaDeskWeb.Models
         public string CustomerName { get; set; }
 
         [Display(Name = "Quote Date")]
+        [DataType(DataType.Date)]
         public DateTime QuoteDate { get; set; }
 
         [Display(Name = "Quote Price")]

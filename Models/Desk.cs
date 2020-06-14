@@ -14,6 +14,7 @@ namespace MegaDeskWeb.Models
 
         public decimal Depth { get; set; }
 
+
         [Display(Name = "Number Of Drawers")]
         public int NumberOfDrawers { get; set; }
 
